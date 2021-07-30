@@ -1,0 +1,69 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  background-color: #202327;
+  margin: auto;
+  border-radius: 3rem;
+  padding: 12px;
+}
+
+.profiles {
+  cursor: pointer;
+}
+
+.profiles:hover {
+  color: #1780c1;
+}
+
+.page {
+  position: absolute;
+}
+
+.search .svg g {
+  fill: #6e7673;
+}
+
+.inputField {
+  margin-left: 0.5rem;
+  background-color: #202327;
+  border: none;
+  color: #6e7673;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.searchBox {
+  overflow: visible;
+  position: relative;
+  border: 1px solid;
+  margin-left: 0.8rem;
+  width: 23vw;
+  background: black;
+  margin-top: 0.3rem;
+}
+
+.searchBox > div {
+  overflow: visible;
+  position: relative;
+  border: 1px solid #6e7673;
+  padding: 0.8rem;
+}
+
+.searchBtn {
+  text-align: left;
+  padding: 0.2rem;
+  background-color: #202327;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .searchBox {
+    overflow: visible;
+    position: relative;
+    border: 1px solid;
+    margin-left: 0.8rem;
+    width: 85vw;
+    background: black;
+    margin-top: 0.3rem;
+  }
+}

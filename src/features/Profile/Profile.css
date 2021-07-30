@@ -1,0 +1,95 @@
+.background-overlay {
+  background-image: linear-gradient(
+    to right,
+    #eea2a2 0%,
+    #bbc1bf 19%,
+    #57c6e1 42%,
+    #b49fda 79%,
+    #7ac5d8 100%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8rem;
+}
+
+.follow-profile {
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: #57c6e1;
+  width: 4rem;
+  margin: auto;
+  text-align: right;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.profile-page {
+  min-width: 30rem;
+}
+
+.about {
+  padding: 1rem;
+  border-top: 1px solid #1c1f20;
+  border-bottom: 1px solid #1c1f20;
+}
+
+.heading {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.about-text {
+  font-size: 15px;
+}
+
+.profile-img-large {
+  position: relative;
+  top: 5rem;
+  border-radius: 3rem;
+  width: 5rem;
+  margin: auto;
+  display: block;
+  border: 2px solid #563a3a;
+}
+
+.mr-t {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.dashboard-flex {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .background-overlay {
+    background-image: linear-gradient(
+      to right,
+      #eea2a2 0%,
+      #bbc1bf 19%,
+      #57c6e1 42%,
+      #b49fda 79%,
+      #7ac5d8 100%
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 8rem;
+    width: auto;
+  }
+
+  .profile-page {
+    min-width: 0;
+  }
+
+  .profile {
+    margin-bottom: 5rem;
+  }
+
+  .about-text {
+    width: fit-content;
+  }
+}

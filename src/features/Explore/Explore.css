@@ -1,0 +1,95 @@
+.flex-menu {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex-menu > div {
+  width: 33%;
+  text-align: center;
+}
+
+.user-button {
+  color: white;
+  padding: 1rem;
+  width: 8rem;
+}
+
+.user-button:active {
+  border: 2px solid;
+}
+
+.user-button:hover {
+  background-color: #111314;
+}
+
+.flex-menu-wrapped {
+  margin-right: 1rem;
+  padding: 1rem;
+  border: 2px solid #111314;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards > div {
+  height: fit-content;
+  text-align: center;
+}
+
+.user-sugg-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 3px solid#111314;
+  border-radius: 3rem;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.status {
+  margin: 0.4rem 0rem;
+  font-size: small;
+}
+
+.follow-btn {
+  color: #1780c1;
+  background-color: black;
+  width: fit-content;
+  height: 2.2rem;
+  border: 2px solid #1780c1;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+
+.follow-btn:hover {
+  background-color: #384650;
+}
+
+.user-details {
+  color: white;
+}
+
+.user-details:hover {
+  color: #7ac5d8;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .explore {
+    margin-bottom: 5rem;
+  }
+}

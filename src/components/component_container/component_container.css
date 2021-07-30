@@ -1,0 +1,8 @@
+.component-white-with-margin {
+  margin-top: 4rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  border: 2px solid #111314;
+}

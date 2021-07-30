@@ -1,0 +1,127 @@
+.home {
+  background-color: black;
+}
+
+.fa {
+  font-size: 15px;
+}
+
+.primary-txt {
+  color: white;
+}
+
+.active {
+  color: rgb(38, 99, 124);
+}
+
+.blue {
+  color: skyblue;
+  margin-right: 0.3rem;
+}
+
+.navbar {
+  display: grid;
+  font-size: 1.2rem;
+  padding: 1rem;
+  position: fixed;
+  width: fit-content;
+}
+
+.navbar li {
+  padding: 0.5rem;
+}
+
+.navbar > ul > li {
+  list-style: none;
+  margin: 1rem;
+}
+
+.navbar > ul > li > div {
+  text-align: center;
+  width: 8rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.navbar > ul > li :hover {
+  background-color: #1da1f2;
+  cursor: pointer;
+}
+
+.post-clk {
+  background-color: #1da1f2;
+  width: 8rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.svg {
+  width: 1.75rem;
+  height: 1.4rem;
+}
+
+.svg g {
+  fill: rgb(217, 217, 217);
+}
+
+.logout-btn {
+  margin-top: 12rem;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    font-size: 10px;
+  }
+  .navbar > ul {
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 98vw;
+    padding: 0rem 0;
+    border: 1px solid rgb(127, 122, 122);
+    margin: auto;
+
+    height: 3rem;
+  }
+
+  .navbar > ul > li > div {
+    background-color: black;
+    border-radius: 0;
+  }
+
+  .navbar > ul > li :hover {
+    cursor: pointer;
+    color: #1da1f2;
+    background-color: #2b4153;
+    border-radius: 0;
+  }
+  .blue {
+    color: skyblue;
+    margin-right: 0.3rem;
+    font-size: 15px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+
+  .navbar > ul > li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: contents;
+  }
+
+  .post-clk {
+    border-radius: 0rem;
+  }
+
+  .logout-btn {
+    margin-top: 0rem;
+  }
+}

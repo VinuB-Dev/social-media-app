@@ -1,0 +1,68 @@
+.recobar {
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid #111314;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  position: fixed;
+  z-index: 100;
+}
+
+.sugg-bar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.recobar div:last-of-type {
+  margin-right: auto;
+}
+.sugg-bar:hover {
+  background-color: #111314;
+}
+
+.profile-img {
+  margin-bottom: 1rem;
+  border-radius: 3rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.status {
+  margin: 0.4rem 0rem;
+  font-size: small;
+}
+
+.follow-btn {
+  color: #1780c1;
+  background-color: black;
+  width: fit-content;
+  height: 2.2rem;
+  border: 2px solid #1780c1;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+
+.follow-btn:hover {
+  background-color: #384650;
+}
+
+.input-field {
+  width: auto;
+}
+
+@media (max-width: 900px) {
+  .last-box {
+    display: none;
+    width: 0;
+  }
+
+  .recobar {
+    width: 0rem;
+  }
+}
