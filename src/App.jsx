@@ -15,7 +15,7 @@ export default function App() {
   const auth = useSelector(selectAuth);
   return (
     <div className="App">
-      <div style={{ display: auth.loggedIn ? "none" : "block", backgroundColor: "white",color:"black", padding:"1rem" }}>Thoughtify</div>
+      <div style={{ display: auth.loggedIn ? "none" : "block"}}>Thoughtify</div>
       <div className="full">
         <div style={{ display: auth.loggedIn ? "block" : "none" }}>
           <Navbar />
