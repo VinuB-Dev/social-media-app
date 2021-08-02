@@ -30,10 +30,6 @@ export default function Profile() {
       dispatch(getCurrentTweetsAsync());
     if (connectionStatus === "idle" || connectionStatus === "loading")
       dispatch(getConnectionAsync());
-    setData({
-      Following: Following,
-      Followers: Followers
-    });
   }, [dispatch, profileStatus, connectionStatus, Followers, Following]);
 
   return (
@@ -64,11 +60,11 @@ export default function Profile() {
           <div className="dashboard-flex">
             <div>
               <div>Followers</div>
-              <div>{data.Followers?.length}</div>
+              <div>{Followers?.length}</div>
             </div>
             <div>
               <div>Following</div>
-              <div>{data.Following?.length}</div>
+              <div>{Following?.length}</div>
             </div>
             <div>
               <div>Posts</div>

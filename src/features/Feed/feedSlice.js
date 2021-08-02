@@ -106,9 +106,6 @@ export const feedSlice = createSlice({
       state.status = "failed";
       state.error = action.error.message;
     },
-    [incrementLike.pending]: (state) => {
-      state.status = "loading";
-    },
     [incrementLike.fulfilled]: (state, action) => {
       state.status = "success";
     },

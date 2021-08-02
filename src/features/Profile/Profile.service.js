@@ -20,7 +20,7 @@ export const getCurrentTweetsAsync = createAsyncThunk(
 );
 
 export const getOthersProfileAsync = createAsyncThunk(
-  "feed/getOtherTweets",
+  "feed/getOthersProfile",
   async ({ userId }) => {
     const response = await axios.get(
       "https://Twitter.bravesoldier.repl.co/tweet/" + userId,
