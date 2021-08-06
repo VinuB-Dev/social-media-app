@@ -66,6 +66,7 @@ a {
 }
 
 .follow-btn {
+  margin: auto;
   color: #1780c1;
   background-color: black;
   width: fit-content;

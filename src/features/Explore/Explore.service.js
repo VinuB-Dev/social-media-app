@@ -1,63 +1,63 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAuthToken } from "../../utils";
+import axios from 'axios'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { getAuthToken } from '../../utils'
 
 export const getConnectionAsync = createAsyncThunk(
-  "connection/getUserSuggestions",
+  'connection/getUserConnections',
   async () => {
     const response = await axios.get(
-      "https://twitter.bravesoldier.repl.co/connection",
+      'https://twitter.bravesoldier.repl.co/connection',
       {
         headers: {
-          Authorization: getAuthToken()
-        }
+          Authorization: getAuthToken(),
+        },
       }
-    );
-    return response.data;
+    )
+    return response.data
   }
-);
+)
 
-export const getUsers = createAsyncThunk("connection/getUsers", async () => {
+export const getUsers = createAsyncThunk('connection/getUsers', async () => {
   const response = await axios.get(
-    "https://twitter.bravesoldier.repl.co/connection/users",
+    'https://twitter.bravesoldier.repl.co/connection/users',
     {
       headers: {
-        Authorization: getAuthToken()
-      }
+        Authorization: getAuthToken(),
+      },
     }
-  );
-  return response.data.users;
-});
+  )
+  return response.data.users
+})
 
-export const followAsync = createAsyncThunk("connection/follow", async (id) => {
+export const followAsync = createAsyncThunk('connection/follow', async (id) => {
   const response = await axios.post(
-    "https://twitter.bravesoldier.repl.co/connection/follow",
+    'https://twitter.bravesoldier.repl.co/connection/follow',
     {
-      userId: id
+      userId: id,
     },
     {
       headers: {
-        Authorization: getAuthToken()
-      }
+        Authorization: getAuthToken(),
+      },
     }
-  );
-  return response.data;
-});
+  )
+  return response.data
+})
 
 export const unfollowAsync = createAsyncThunk(
-  "connection/unfollow",
+  'connection/unfollow',
   async (id) => {
     const response = await axios.post(
-      "https://twitter.bravesoldier.repl.co/connection/unfollow",
+      'https://twitter.bravesoldier.repl.co/connection/unfollow',
       {
-        userId: id
+        userId: id,
       },
       {
         headers: {
-          Authorization: getAuthToken()
-        }
+          Authorization: getAuthToken(),
+        },
       }
-    );
-    return response.data;
+    )
+    return response.data
   }
-);
+)
