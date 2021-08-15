@@ -31,7 +31,7 @@ export default function OtherProfile() {
       Following: Followers,
       Followers: Following,
     })
-  }, [userId, profileStatus])
+  }, [userId])
 
   function isFollowing(user) {
     return Object.values(UserFollowing ? UserFollowing : '').reduce(
