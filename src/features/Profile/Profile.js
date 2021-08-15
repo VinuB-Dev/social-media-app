@@ -47,14 +47,14 @@ export default function Profile() {
             <span className='bold'>{profileUser.name} </span>
             <span className='diff-color'>@{profileUser.tag}</span>
           </div>
-          <div
+          {/* <div
             disabled
             className='edit-profile'
             onClick={() => setModal(!modal)}
           >
             <Edit user={profileUser} />
           </div>
-          <br />
+          <br /> */}
         </div>
         <div className='about'>
           <div className='dashboard-flex'>

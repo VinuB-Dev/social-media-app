@@ -1,54 +1,54 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAuthToken } from "../../utils";
+import axios from 'axios'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { getAuthToken } from '../../utils'
 
 export const getCurrentTweetsAsync = createAsyncThunk(
-  "feed/getTweets",
+  'feed/getTweets',
   async () => {
     const response = await axios.get(
-      "https://Twitter.bravesoldier.repl.co/tweet/current",
+      'https://Twitter.bravesoldier.repl.co/tweet/current',
       {
         headers: {
-          Authorization: getAuthToken()
-        }
+          Authorization: getAuthToken(),
+        },
       }
-    );
+    )
 
-    console.log(response.data);
-    return response.data;
+    console.log(response.data)
+    return response.data
   }
-);
+)
 
 export const getOthersProfileAsync = createAsyncThunk(
-  "feed/getOthersProfile",
+  'feed/getOthersProfile',
   async ({ userId }) => {
     const response = await axios.get(
-      "https://Twitter.bravesoldier.repl.co/tweet/" + userId,
+      'https://Twitter.bravesoldier.repl.co/tweet/' + userId,
       {
         headers: {
-          Authorization: getAuthToken()
-        }
+          Authorization: getAuthToken(),
+        },
       }
-    );
-    return response.data;
+    )
+    return response.data
   }
-);
+)
 
 export const updateUserInfoAsync = createAsyncThunk(
-  "feed/getOtherTweets",
+  'feed/updateUserProfile',
   async (tag, about) => {
     const response = await axios.get(
-      "https://Twitter.bravesoldier.repl.co/user/updateUserInfo/",
+      'https://Twitter.bravesoldier.repl.co/user/updateUserInfo/',
       {
         tag: tag,
-        about: about
+        about: about,
       },
       {
         headers: {
-          Authorization: getAuthToken()
-        }
+          Authorization: getAuthToken(),
+        },
       }
-    );
-    return response.data;
+    )
+    return response.data
   }
-);
+)
