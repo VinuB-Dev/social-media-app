@@ -54,7 +54,8 @@ export default function Profile() {
           >
             <Edit user={profileUser} />
           </div>
-          <br /> */}
+           */}
+          <br />
         </div>
         <div className='about'>
           <div className='dashboard-flex'>
