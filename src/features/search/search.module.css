@@ -56,6 +56,17 @@
   border: none;
 }
 
+.searchBar {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.notFoundBar {
+  display: flex;
+  gap: 1rem;
+}
+
 @media (max-width: 900px) {
   .searchBox {
     overflow: visible;

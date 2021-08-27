@@ -19,8 +19,10 @@ export default function App() {
         style={{
           display: auth.loggedIn ? "none" : "block"
         }}
+        className = 'login-nav'
       >
-        Thoughtify
+        <div className = 'center'>Thoughtify</div>
+        <div className = 'center'>A social media app to share thoughts</div>
       </div>
       <div className="full">
         <div style={{ display: auth.loggedIn ? "block" : "none" }}>

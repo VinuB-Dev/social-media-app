@@ -13,8 +13,6 @@ export const getCurrentTweetsAsync = createAsyncThunk(
         },
       }
     )
-
-    console.log(response.data)
     return response.data
   }
 )
@@ -36,11 +34,12 @@ export const getOthersProfileAsync = createAsyncThunk(
 
 export const updateUserInfoAsync = createAsyncThunk(
   'feed/updateUserProfile',
-  async (tag, about) => {
-    const response = await axios.get(
+  async ({ tag, about, profileImg }) => {
+    const response = await axios.post(
       'https://Twitter.bravesoldier.repl.co/user/updateUserInfo/',
       {
         tag: tag,
+        profileImg: profileImg,
         about: about,
       },
       {

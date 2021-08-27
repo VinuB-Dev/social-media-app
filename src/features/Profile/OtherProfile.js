@@ -1,7 +1,7 @@
 import ComponentContainer from '../../components/component_container/component_container'
 import './Profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faComment, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOthersProfileAsync } from './Profile.service'
 import { followAsync, unfollowAsync } from '../Explore/Explore.service'
@@ -9,6 +9,8 @@ import { selectConnection } from '../Explore/ExploreSlice'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { selectProfile } from './ProfileSlice'
+import { Loader } from '../../components/Loader/Loader'
+
 export default function OtherProfile() {
   const dispatch = useDispatch()
   const [data, setData] = useState({
@@ -43,94 +45,106 @@ export default function OtherProfile() {
   }
   return (
     <div class='profile'>
-      {console.log(profileUser)}
-      <ComponentContainer>
-        <div class='profile-page'>
-          <div className='background-overlay'>
-            <img
-              className='profile-img-large'
-              src={profileUser.profileImg}
-              alt=''
-            />
-          </div>
-          <div className='mr-t'>
-            <span className='bold'>{profileUser.name} </span>
-            <span className='diff-color'>@{profileUser.tag}</span>
-          </div>
-          <div
-            className='follow-profile'
-            onClick={() => {
-              if (!isFollowing(profileUser)) {
-                dispatch(followAsync(profileUser._id))
-              } else {
-                dispatch(unfollowAsync(profileUser._id))
-              }
-            }}
-          >
-            {isFollowing(profileUser) ? 'Unfollow' : '+Follow'}
-          </div>
-          <br />
-
-          <div className='about'>
-            <div className='dashboard-flex'>
-              <div>
-                <div>Followers</div>
-                <div>{Followers?.length}</div>
-              </div>
-              <div>
-                <div>Following</div>
-                <div>{Following?.length}</div>
-              </div>
-              <div>
-                <div>Posts</div>
-                <div>{profileTweets?.length}</div>
-              </div>
+      {profileStatus === 'loading' && <Loader />}
+      {profileStatus !== 'loading' && (
+        <ComponentContainer>
+          <div class='profile-page'>
+            <div className='background-overlay'>
+              <img
+                className='profile-img-large'
+                src={profileUser.profileImg}
+                alt=''
+              />
+            </div>
+            <div className='mr-t'>
+              <span className='bold'>{profileUser.name} </span>
+              <span className='diff-color'>@{profileUser.tag}</span>
+            </div>
+            <div
+              className='follow-profile'
+              onClick={() => {
+                if (!isFollowing(profileUser)) {
+                  dispatch(followAsync(profileUser._id))
+                } else {
+                  dispatch(unfollowAsync(profileUser._id))
+                }
+              }}
+            >
+              {isFollowing(profileUser) ? 'Unfollow' : '+Follow'}
             </div>
             <br />
+
             <div className='about'>
-              <span className='heading'>Bio</span>
-              <div className='about-text'>{profileUser.about}</div>
+              <div className='dashboard-flex'>
+                <div>
+                  <div>Followers</div>
+                  <div>{Followers?.length}</div>
+                </div>
+                <div>
+                  <div>Following</div>
+                  <div>{Following?.length}</div>
+                </div>
+                <div>
+                  <div>Posts</div>
+                  <div>{profileTweets?.length}</div>
+                </div>
+              </div>
+              <br />
+              {profileUser.about ? (
+                <div className='about'>
+                  <span className='heading'>Bio</span>
+                  <div className='about-text'>{profileUser.about}</div>
+                </div>
+              ) : (
+                ''
+              )}
             </div>
           </div>
-        </div>
-        <div className='about'>
-          <div className='heading'>{profileUser.name}'s posts</div>
-        </div>
-        {profileTweets.map(({ content, contentImg, likes }) => {
-          return (
-            <div class='tweet'>
-              <div class='tweet-container'>
-                <div class='happenning-btn'>
-                  <img
-                    class='profile-btn'
-                    src={profileUser.profileImg}
-                    alt=''
-                  />
-                </div>
-                <div class='tweet-text'>
-                  <span class='bold'>{profileUser.name} </span>
-                  <span class='diff-color'>@{profileUser.tag}</span>
-                  <br />
-                  <div class='less-font'>{content}</div>
-                  {contentImg && (
-                    <div>
-                      <img src={contentImg} class='img-small' alt='' />
+          <div className='about'>
+            <div className='heading'>{profileUser.name}'s posts</div>
+          </div>
+          {profileTweets
+            ?.slice(0)
+            .reverse()
+            .map(({ content, contentImg, likedBy }) => {
+              return (
+                <div class='tweet'>
+                  <div class='tweet-container'>
+                    <div class='happenning-btn'>
+                      <img
+                        class='profile-btn'
+                        src={profileUser.profileImg}
+                        alt=''
+                      />
                     </div>
-                  )}
+                    <div class='tweet-text'>
+                      <span class='bold'>{profileUser.name} </span>
+                      <span class='diff-color'>@{profileUser.tag}</span>
+                      <br />
+                      <div class='less-font'>{content}</div>
+                      {contentImg && (
+                        <div>
+                          <img src={contentImg} class='img-small' alt='' />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div class='icons-container'>
+                    <ul>
+                      <li>
+                        <FontAwesomeIcon
+                          className='small-icon'
+                          icon={faHeart}
+                        />
+                        {likedBy.length}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <div class='icons-container'>
-                <ul>
-                  <li>
-                    <FontAwesomeIcon className='small-icon' icon={faHeart} />
-                    {likes}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )
-        })}
-      </ComponentContainer>
+              )
+            })}
+        </ComponentContainer>
+      )}
     </div>
   )
 }

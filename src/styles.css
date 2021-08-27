@@ -44,3 +44,16 @@ body {
     border-width: 8px;
   }
 }
+
+.login-nav {
+  text-shadow: 2px 2px 2px red, 2px 2px 1em blue, 2px 2px 0.2em blue;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+}
+
+.center {
+  margin: 0 auto;
+  width: fit-content;
+  padding-top: 0.5rem;
+}

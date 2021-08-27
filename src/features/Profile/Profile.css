@@ -47,11 +47,12 @@
 .profile-img-large {
   position: relative;
   top: 5rem;
-  border-radius: 3rem;
+  border-radius: 9999px;
   width: 5rem;
   margin: auto;
   display: block;
   border: 2px solid #563a3a;
+  height: 5rem;
 }
 
 .mr-t {

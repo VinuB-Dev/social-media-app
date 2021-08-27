@@ -45,12 +45,13 @@ export const profileSlice = createSlice({
       state.status = 'loading'
     },
     [updateUserInfoAsync.fulfilled]: (state, action) => {
-      state.status = 'success'
+      state.status = 'done'
+      state.user = action.payload.user
     },
   },
 })
 
-export const { resetProfile } = profileSlice.actions
+export const { resetFeed, updateUserDetails } = profileSlice.actions
 
 export const selectProfile = (state) => state.profile
 

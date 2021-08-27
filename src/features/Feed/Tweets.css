@@ -46,10 +46,17 @@
   cursor: pointer;
 }
 
+.icon {
+  color: #1da1f2;
+  font-size: 20px;
+  margin-bottom: 3px;
+  margin-right: 0.2rem;
+}
+
 .container-home {
   width: auto;
   display: grid;
-  grid-template-areas: "text-home svg-home";
+  grid-template-areas: 'text-home svg-home';
   grid-column-gap: 1rem;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
@@ -73,6 +80,7 @@
 .profile-btn {
   border-radius: 3rem;
   width: 3rem;
+  height: 3rem;
   margin-top: 1rem;
   margin-left: 0.5rem;
 }
@@ -112,7 +120,7 @@ select:focus {
 .happenning {
   width: auto;
   display: grid;
-  grid-template-areas: "happenning-btn primary-txt";
+  grid-template-areas: 'happenning-btn primary-txt';
   grid-template-columns: 50px auto;
   border: 1px solid #1c1f20;
 }
@@ -151,7 +159,7 @@ select:focus {
 
 .full {
   display: grid;
-  grid-template-areas: "nav  middle-box last-box";
+  grid-template-areas: 'nav  middle-box last-box';
   grid-template-columns: 25% auto 25%;
   grid-column-gap: 1rem;
 }
@@ -276,7 +284,7 @@ select:focus {
   .icons-list {
     max-width: 2rem;
     display: grid;
-    grid-template-areas: "button-list primary-btn-2";
+    grid-template-areas: 'button-list primary-btn-2';
     grid-template-columns: minmax(10rem, 10rem) auto;
   }
 
@@ -284,4 +292,57 @@ select:focus {
     border: 1px solid #1c1f20;
     margin-top: 0.5rem;
   }
+}
+
+.reply-txt {
+  border: 1px solid rgb(77, 95, 102);
+  background-color: black;
+  width: 60%;
+  margin-left: 3.5rem;
+  word-break: break-word;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  font-size: inherit;
+  color: white;
+}
+
+.reply-btn {
+  color: #f5f0f3;
+  border: 1px solid #1da1f2;
+  background-color: black;
+  border-radius: 3rem;
+  width: 5rem;
+  height: 2.5rem;
+  font-weight: bold;
+  margin-left: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.reply-btn:hover {
+  color: #1da1f2;
+  background-color: rgba(255, 255, 255, 0.856);
+}
+
+.full-border {
+  border: 1px solid #1c1f20;
+  padding-bottom: 0.5rem;
+}
+
+.comment-btn {
+  border-radius: 3rem;
+  width: 2rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.font-s {
+  font-size: 14px;
+}
+
+.reply-text {
+  margin-top: 1rem;
+  margin-left: 0.8rem;
 }
