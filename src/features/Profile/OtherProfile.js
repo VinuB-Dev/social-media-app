@@ -106,7 +106,7 @@ export default function OtherProfile() {
           {profileTweets
             ?.slice(0)
             .reverse()
-            .map(({ content, contentImg, likedBy }) => {
+            .map(({ content, contentImg, likedBy, comments }) => {
               return (
                 <div class='tweet'>
                   <div class='tweet-container'>
@@ -137,6 +137,10 @@ export default function OtherProfile() {
                           icon={faHeart}
                         />
                         {likedBy.length}
+                      </li>
+                      <li>
+                        <FontAwesomeIcon className='icon' icon={faComment} />
+                        {comments.length}
                       </li>
                     </ul>
                   </div>

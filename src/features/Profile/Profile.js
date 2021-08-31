@@ -119,15 +119,7 @@ export default function Profile() {
                         {likedBy.length}
                       </li>
                       <li>
-                        <FontAwesomeIcon
-                          className='icon'
-                          icon={faComment}
-                          onClick={() => {
-                            reply.includes(_id)
-                              ? setReply(reply.filter((id) => id !== _id))
-                              : setReply([...reply, _id])
-                          }}
-                        />
+                        <FontAwesomeIcon className='icon' icon={faComment} />
                         {comments.length}
                       </li>
                     </ul>

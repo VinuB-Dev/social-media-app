@@ -49,6 +49,7 @@ export default function Tweets() {
   async function handleClick(text) {
     if (text.length > 0) {
       await dispatch(postTweetAsync({ text }))
+      setText('')
     }
   }
 
@@ -65,34 +66,35 @@ export default function Tweets() {
       <div className='container-home'>
         <div className='text-home'>Home</div>
       </div>
-      {feedStatus === 'loading' && <Loader />}
-      {feedStatus === 'success' && (
-        <div>
-          <div className='happenning'>
-            <div className='happenning-btn'>
-              <img className='profile-btn' src={feedUser.profileImg} alt='' />
-            </div>
-            <div>
-              <input
-                type='text'
-                placeholder="What's happenning"
-                className='primary-txt'
-                onChange={textHandler}
-              />
-            </div>
-            <div class='post-btn-wrapper'>
-              <button
-                className='post-btn'
-                onClick={() => {
-                  handleClick(text)
-                }}
-              >
-                Post
-              </button>
-            </div>
+      <div>
+        <div className='happenning'>
+          <div className='happenning-btn'>
+            <img className='profile-btn' src={feedUser.profileImg} alt='' />
           </div>
-          <div className='blank'></div>
-          {feedTweets?.map(
+          <div>
+            <input
+              type='text'
+              placeholder="What's happenning"
+              className='primary-txt'
+              onChange={textHandler}
+              value={text}
+            />
+          </div>
+          <div class='post-btn-wrapper'>
+            <button
+              className='post-btn'
+              onClick={() => {
+                handleClick(text)
+              }}
+            >
+              Post
+            </button>
+          </div>
+        </div>
+        <div className='blank'></div>
+        {feedStatus === 'loading' && <Loader />}
+        {feedStatus === 'success' && feedTweets.length !== 0 ? (
+          feedTweets.map(
             ({ _id, user, content, contentImg, likedBy, comments }, i) => {
               return (
                 <div className='tweet' key={_id}>
@@ -167,6 +169,8 @@ export default function Tweets() {
                           className='reply-txt'
                           onChange={replyHandler}
                           value={comment}
+                          id={_id}
+                          autofocus
                         />
                         <button
                           className='reply-btn'
@@ -179,7 +183,7 @@ export default function Tweets() {
                         <div>
                           {comments?.map((comment) => {
                             return (
-                              <div className='tweet-container full-border'>
+                              <div className='tweet-container'>
                                 <div className='happenning-btn'>
                                   <img
                                     className='comment-btn'
@@ -211,9 +215,16 @@ export default function Tweets() {
                 </div>
               )
             }
-          )}
-        </div>
-      )}
+          )
+        ) : feedStatus === 'success' && feedTweets.length === 0 ? (
+          <div>
+            <div className='no-tweets'>No posts found</div>
+            <div className='no-tweets'>Just registered ? Post it !!</div>
+          </div>
+        ) : (
+          ''
+        )}
+      </div>
     </div>
   )
 }

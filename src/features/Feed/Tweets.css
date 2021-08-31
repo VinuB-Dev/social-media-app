@@ -334,6 +334,7 @@ select:focus {
 .comment-btn {
   border-radius: 3rem;
   width: 2rem;
+  height: 2rem;
   margin-top: 1rem;
   margin-left: 0.5rem;
 }
@@ -345,4 +346,12 @@ select:focus {
 .reply-text {
   margin-top: 1rem;
   margin-left: 0.8rem;
+}
+
+.no-tweets {
+  color: white;
+  margin: auto;
+  margin-top: 5rem;
+  width: fit-content;
+  font-size: large;
 }
