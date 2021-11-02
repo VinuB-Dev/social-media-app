@@ -26,7 +26,7 @@ export default function Modal() {
   return (
     <div>
       <div
-        class={styles.modalBtnClick}
+        className={styles.modalBtnClick}
         onClick={() => {
           showModal(!modal)
         }}
@@ -34,7 +34,7 @@ export default function Modal() {
         Post
       </div>
       <div
-        class={styles.modalOverlay}
+        className={styles.modalOverlay}
         style={{ display: modal ? 'block' : 'none' }}
         onClick={() => showModal(!modal)}
       ></div>
@@ -42,10 +42,10 @@ export default function Modal() {
         className={styles.modalDesktop}
         style={{ display: modal ? 'block' : 'none' }}
       >
-        <div class={styles.modalMain}>
-          <div class={styles.happenningBtn}>
+        <div className={styles.modalMain}>
+          <div className={styles.happenningBtn}>
             <img
-              class={styles.profileBtn}
+              className={styles.profileBtn}
               src={current_user['profileImg']}
               alt=''
             />
@@ -54,7 +54,7 @@ export default function Modal() {
             <input
               type='text'
               placeholder="What's happenning"
-              class={styles.primaryTxtModal}
+              className={styles.primaryTxtModal}
               onChange={textHandler}
             />
             <div className={styles.closeBtn} onClick={() => showModal(!modal)}>
@@ -62,12 +62,12 @@ export default function Modal() {
             </div>
           </div>
           <div></div>
-          <div class='icons-list'>
-            <div class='button-list'>
+          <div className='icons-list'>
+            <div className='button-list'>
               <ul>
                 <li>
                   <button
-                    class={styles.modalBtn}
+                    className={styles.modalBtn}
                     onClick={() => {
                       handleClick(text)
                       showModal(!modal)

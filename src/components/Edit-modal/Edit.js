@@ -44,7 +44,7 @@ export default function Edit({ user }) {
   return (
     <div>
       <div
-        class='modalBtnClick'
+        className='modalBtnClick'
         onClick={() => {
           showModal(!modal)
         }}
@@ -52,7 +52,7 @@ export default function Edit({ user }) {
         Edit
       </div>
       <div
-        class='modalOverlay'
+        className='modalOverlay'
         style={{ display: modal ? 'block' : 'none' }}
         onClick={() => {
           showModal(!modal)
@@ -92,7 +92,7 @@ export default function Edit({ user }) {
                 autoComplete='off'
                 onChange={onChangeHandler}
               />
-              <label for='profileImg' class='upload-button'>
+              <label for='profileImg' className='upload-button'>
                 Change profile image
               </label>
               <input id='profileImg' type='file' onChange={uploadImage} />

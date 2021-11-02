@@ -1,7 +1,5 @@
 import ComponentContainer from '../../components/component_container/component_container'
 import './Profile.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment, faHeart } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCurrentTweetsAsync } from './Profile.service'
 import { useEffect, useState } from 'react'
@@ -10,33 +8,42 @@ import { selectProfile } from './ProfileSlice'
 import { selectConnection } from '../Explore/ExploreSlice'
 import { getConnectionAsync } from '../Explore/Explore.service'
 import { Loader } from '../../components/Loader/Loader'
+import TweetContainer from '../../components/TweetContainer/TweetContainer'
+import { selectFeed } from '../Feed/feedSlice'
 
 export default function Profile() {
   const dispatch = useDispatch()
   const [modal, setModal] = useState(0)
   const profile = useSelector(selectProfile)
   const profileStatus = useSelector((state) => state.profile.status)
-  const profileTweets = useSelector((state) => state.profile.tweets)
   const profileUser = useSelector((state) => state.profile.user)
   const connection = useSelector(selectConnection)
+  const feed = useSelector(selectFeed)
+  const feedStatus = useSelector((state) => state.feed.status)
+  const profileTweets = useSelector((state) => state.feed.tweets).filter(
+    (tweet) => tweet.user._id === profileUser._id
+  )
   const connectionStatus = useSelector((state) => state.connection.status)
   const Followers = useSelector((state) => state.connection.Followers)
   const Following = useSelector((state) => state.connection.Following)
-  const [reply, setReply] = useState([])
-
   useEffect(() => {
-    if (profileStatus === 'idle' || profileStatus === 'done')
+    if (
+      profileStatus === 'idle' ||
+      profileStatus === 'done' ||
+      feedStatus === 'idle' ||
+      feedStatus === 'loading'
+    )
       dispatch(getCurrentTweetsAsync())
     if (connectionStatus === 'idle' || connectionStatus === 'loading')
       dispatch(getConnectionAsync())
   }, [dispatch, profileStatus, connectionStatus, Followers, Following])
 
   return (
-    <div class='profile'>
+    <div className='profile'>
       {profileStatus === 'loading' && <Loader />}
       {profileStatus === 'success' && (
         <ComponentContainer>
-          <div class='profile-page'>
+          <div className='profile-page'>
             <div className='background-overlay'>
               <img
                 className='profile-img-large'
@@ -86,45 +93,19 @@ export default function Profile() {
           <div className='about'>
             <div className='heading'>Your Posts</div>
           </div>
+          {console.log(profileTweets)}
           {profileTweets
             ?.slice(0)
-            .reverse()
-            .map(({ content, contentImg, likedBy, comments }) => {
+            .map(({ _id, user, content, contentImg, likedBy, comments }) => {
               return (
-                <div class='tweet'>
-                  <div class='tweet-container'>
-                    <div class='happenning-btn'>
-                      <img
-                        class='profile-btn'
-                        src={profileUser.profileImg}
-                        alt=''
-                      />
-                    </div>
-                    <div class='tweet-text'>
-                      <span class='bold'>{profileUser.name} </span>
-                      <span class='diff-color'>@{profileUser.tag}</span>
-                      <br />
-                      <div class='less-font'>{content}</div>
-                      {contentImg && (
-                        <div>
-                          <img src={contentImg} class='img-small' alt='' />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div class='icons-container'>
-                    <ul>
-                      <li>
-                        <FontAwesomeIcon className='icon' icon={faHeart} />
-                        {likedBy.length}
-                      </li>
-                      <li>
-                        <FontAwesomeIcon className='icon' icon={faComment} />
-                        {comments.length}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <TweetContainer
+                  _id={_id}
+                  user={user}
+                  content={content}
+                  contentImg={contentImg}
+                  likedBy={likedBy}
+                  comments={comments}
+                />
               )
             })}
         </ComponentContainer>

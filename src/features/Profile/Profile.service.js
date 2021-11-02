@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { getAuthToken } from '../../utils'
 
 export const getCurrentTweetsAsync = createAsyncThunk(
-  'feed/getTweets',
+  'profile/getTweets',
   async () => {
     const response = await axios.get(
       'https://Twitter.bravesoldier.repl.co/tweet/current',
@@ -18,7 +18,7 @@ export const getCurrentTweetsAsync = createAsyncThunk(
 )
 
 export const getOthersProfileAsync = createAsyncThunk(
-  'feed/getOthersProfile',
+  'profile/getOthersProfile',
   async ({ userId }) => {
     const response = await axios.get(
       'https://Twitter.bravesoldier.repl.co/tweet/' + userId,
@@ -33,7 +33,7 @@ export const getOthersProfileAsync = createAsyncThunk(
 )
 
 export const updateUserInfoAsync = createAsyncThunk(
-  'feed/updateUserProfile',
+  'profile/updateUserProfile',
   async ({ tag, about, profileImg }) => {
     const response = await axios.post(
       'https://Twitter.bravesoldier.repl.co/user/updateUserInfo/',

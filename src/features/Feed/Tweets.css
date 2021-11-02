@@ -53,6 +53,13 @@
   margin-right: 0.2rem;
 }
 
+.icon-profile {
+  color: #1da1f2;
+  font-size: 15px;
+  margin-bottom: 3px;
+  margin-right: 0.2rem;
+}
+
 .container-home {
   width: auto;
   display: grid;

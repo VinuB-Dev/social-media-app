@@ -23,7 +23,6 @@ export default function Search() {
 
   useEffect(() => {
     dispatch(getUsers())
-    console.log(users)
   }, [select, dispatch])
 
   const filterItems = (arr, query) => {
